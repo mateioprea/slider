@@ -18,14 +18,16 @@ const calcPoints = (vertical, marks, dots, step, min, max) => {
 };
 
 const Steps = ({ prefixCls, vertical, marks, dots, step, included,
-                lowerBound, upperBound, max, min, dotStyle, activeDotStyle }) => {
+                lowerBound, upperBound, max, min, dotStyle,
+                activeDotStyle, heightFactor, minimumHeight }) => {
   const range = max - min;
   const elements = calcPoints(vertical, marks, dots, step, min, max).map((point) => {
     const offset = `${Math.abs(point - min) / range * 100}%`;
 
+    const height = heightFactor * Math.abs(point - min) + minimumHeight;
     const isActived = (!included && point === upperBound) ||
             (included && point <= upperBound && point >= lowerBound);
-    let style = vertical ? { bottom: offset, ...dotStyle } : { left: offset, ...dotStyle };
+    let style = vertical ? { bottom: offset, ...dotStyle } : (heightFactor ? {left: offset, height: height, ...dotStyle} : { left: offset, ...dotStyle });
     if (isActived) {
       style = { ...style, ...activeDotStyle };
     }

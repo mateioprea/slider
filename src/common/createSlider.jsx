@@ -38,6 +38,8 @@ export default function createSlider(Component) {
       railStyle: PropTypes.object,
       dotStyle: PropTypes.object,
       activeDotStyle: PropTypes.object,
+      heightFactor: PropTypes.number,
+      minimumHeight: PropTypes.number,
     };
 
     static defaultProps = {
@@ -64,6 +66,8 @@ export default function createSlider(Component) {
       railStyle: {},
       dotStyle: {},
       activeDotStyle: {},
+      heightFactor: 0,
+      minimumHeight: 0,
     };
 
     constructor(props) {
@@ -254,6 +258,8 @@ export default function createSlider(Component) {
         railStyle,
         dotStyle,
         activeDotStyle,
+        heightFactor,
+        minimumHeight,
       } = this.props;
       const { tracks, handles } = super.render();
 
@@ -296,6 +302,8 @@ export default function createSlider(Component) {
             min={min}
             dotStyle={dotStyle}
             activeDotStyle={activeDotStyle}
+            heightFactor={heightFactor}
+            minimumHeight={minimumHeight}
           />
           {handles}
           <Marks

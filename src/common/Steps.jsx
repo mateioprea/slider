@@ -16,6 +16,7 @@ const calcPoints = (vertical, marks, dots, step, min, max) => {
   }
   return points;
 };
+console.log('test');
 
 const Steps = ({ prefixCls, vertical, marks, dots, step, included,
                 lowerBound, upperBound, max, min, dotStyle,

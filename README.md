@@ -20,8 +20,73 @@ Slider UI component for React
 [gemnasium-url]: https://gemnasium.com/react-component/slider
 [node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
-[download-image]: https://img.shields.io/npm/dm/rc-slider.svg?style=flat-square
-[download-url]: https://npmjs.org/package/rc-slider
+[download-image]: https://img.shields.io/npm/dm/@mateioprea/rc-slider.svg?style=flat-square
+[download-url]: https://npmjs.org/package/@mateioprea/rc-slider
+
+
+## Why this fork?
+
+I had to create a slider like the following: 
+
+<img src="http://i.giphy.com/xT0xewSHae9qgU8AWA.gif" />
+
+###
+For the original package please go to the [original repo](https://github.com/react-component/slider).
+
+###
+### How to recreate the slider above:
+
+````js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Slider from '@mateioprea/rc-slider';
+// We can just import Slider or Range to reduce bundle size
+// import Slider from 'rc-slider/lib/Slider';
+// import Range from 'rc-slider/lib/Range';
+import 'rc-slider/assets/index.css';
+
+ReactDOM.render(
+  <div>
+    <Slider 
+        heightFactor={0.5}
+        minimumHeight={8}
+        dotStyle={{
+            "border-radius": "0%",
+            width: "1px",
+            border: "1px solid #e9e9e9",
+            bottom: "0px",
+        }}
+        activeDotStyle={{
+            borderColor: '#2eb2a3'
+        }}
+        railStyle={{
+            background: 'transparent'
+        }}
+        trackStyle={{
+            background: 'transparent'
+        }}
+        handleStyle={{
+            'background-color': '#2eb2a3',
+            'border': 'none'
+        }}
+        dots={true}
+    />
+  </div>,
+  container
+);
+`````
+
+### Added API
+
+The following APIs are added to Slider
+
+| Name         | Type    | Default | Description |
+| ------------ | ------- | ------- | ----------- |
+| heightFactor | number | `0` | The multiplication offset every bar should be increased with |
+| minimumHeight | number | `0` | The minimum height for every bar. Overrides `heightFactor` |
+
+
+# rc-slider API and description
 
 ## Screenshots
 
